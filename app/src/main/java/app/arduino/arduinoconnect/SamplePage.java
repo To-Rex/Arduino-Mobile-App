@@ -22,11 +22,11 @@ public class SamplePage extends AppCompatActivity {
         setContentView(R.layout.activity_sample_page);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        /*mDatabase.child("data").child("humidity").setValue(10);
-        mDatabase.child("data").child("mator").setValue(10);
-        mDatabase.child("data").child("on").setValue(1);
-        mDatabase.child("data").child("soilmoisture").setValue(20);
-        mDatabase.child("data").child("temperature").setValue(30);*/
+        mDatabase.child("phone").child("humidity").setValue(10);
+        mDatabase.child("phone").child("mator").setValue(10);
+        //mDatabase.child("data").child("on").setValue(1);
+        mDatabase.child("phone").child("soilmoisture").setValue(20);
+        mDatabase.child("phone").child("temperature").setValue(30);
         View view = findViewById(R.id.view);
 
         mDatabase.child("data").child("on").get().addOnCompleteListener(task -> {
