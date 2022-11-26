@@ -23,7 +23,7 @@ public class SamplePage extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private Boolean isOn = false;
-    private int counter = 0;
+    private double counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +74,8 @@ public class SamplePage extends AppCompatActivity {
                     txtSoilmosture.setText(snapshot.child("data").child("soilmoisture").getValue().toString());
                 }
                 if (snapshot.child("data").child("temperature").getValue() != null) {
-                    counter = Integer.parseInt(Objects.requireNonNull(snapshot.child("data").child("temperature").getValue()).toString());
                     txtTemprature.setText(snapshot.child("data").child("temperature").getValue().toString());
+                    counter = Double.parseDouble(snapshot.child("data").child("temperature").getValue().toString());
                 }
             }
             @Override
