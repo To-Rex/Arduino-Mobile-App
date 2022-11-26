@@ -142,8 +142,8 @@ public class SamplePage extends AppCompatActivity {
         vHumP.setOnClickListener(v ->{
             if (counter < 10000) {
                 counter1++;
-                txtHum.setText(String.valueOf(counter));
-                mDatabase.child("phone").child("humidity").setValue(counter);
+                txtHum.setText(String.valueOf(counter1));
+                mDatabase.child("phone").child("humidity").setValue(counter1);
             } else {
                 Toast.makeText(SamplePage.this, "Max Humidity Reached", Toast.LENGTH_SHORT).show();
             }
@@ -152,8 +152,8 @@ public class SamplePage extends AppCompatActivity {
         vHumM.setOnClickListener(v ->{
             if (counter > 0) {
                 counter1--;
-                txtHum.setText(String.valueOf(counter));
-                mDatabase.child("phone").child("humidity").setValue(counter);
+                txtHum.setText(String.valueOf(counter1));
+                mDatabase.child("phone").child("humidity").setValue(counter1);
             } else {
                 Toast.makeText(SamplePage.this, "Min Humidity Reached", Toast.LENGTH_SHORT).show();
             }
