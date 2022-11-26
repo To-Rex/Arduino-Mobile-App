@@ -96,7 +96,7 @@ public class SamplePage extends AppCompatActivity {
         });
 
         vTempP.setOnClickListener(v ->{
-            if (counter < 10) {
+            if (counter < 100) {
                 counter++;
                 txtTemp.setText(String.valueOf(counter));
                 mDatabase.child("phone").child("temperature").setValue(counter);
@@ -104,7 +104,7 @@ public class SamplePage extends AppCompatActivity {
                 Toast.makeText(SamplePage.this, "Max Temp Reached", Toast.LENGTH_SHORT).show();
             }
         });
-        
+
         vTempM.setOnClickListener(v ->{
             if (counter > 0) {
                 counter--;
