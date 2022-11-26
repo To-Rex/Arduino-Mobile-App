@@ -1,7 +1,4 @@
 package app.arduino.arduinoconnect;
-
-import static app.arduino.arduinoconnect.R.id.vTempM;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -159,7 +156,6 @@ public class SamplePage extends AppCompatActivity {
                 Toast.makeText(SamplePage.this, "Min Humidity Reached", Toast.LENGTH_SHORT).show();
             }
         });
-
 
     }
 }
