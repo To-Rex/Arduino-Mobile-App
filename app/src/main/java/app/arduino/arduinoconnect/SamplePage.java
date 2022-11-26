@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +52,11 @@ public class SamplePage extends AppCompatActivity {
         TextView txtTemp = findViewById(R.id.txtTemp);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         TextView txtHum = findViewById(R.id.txtHum);
+
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        Button btnrele1 = findViewById(R.id.btnrele1);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        Button btnrele2 = findViewById(R.id.btnrele2);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @SuppressLint("SetTextI18n")
@@ -153,5 +159,7 @@ public class SamplePage extends AppCompatActivity {
                 Toast.makeText(SamplePage.this, "Min Humidity Reached", Toast.LENGTH_SHORT).show();
             }
         });
+
+
     }
 }
