@@ -42,7 +42,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline2" />
 
     <View
-        android:id="@+id/view4"
+        android:id="@+id/vHumP"
         android:layout_width="44dp"
         android:layout_height="24dp"
         android:background="@drawable/uppp"
@@ -51,7 +51,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
-        android:id="@+id/view5"
+        android:id="@+id/vHumM"
         android:layout_width="44dp"
         android:layout_height="24dp"
         android:background="@drawable/bottom"
@@ -64,10 +64,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/connect"
-        app:layout_constraintBottom_toTopOf="@+id/view5"
+        app:layout_constraintBottom_toTopOf="@+id/vHumM"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view4" />
+        app:layout_constraintTop_toBottomOf="@+id/vHumP" />
 
     <TextView
         android:id="@+id/txtTemp"
@@ -97,7 +97,7 @@
         android:text="@string/the_air"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view5" />
+        app:layout_constraintTop_toBottomOf="@+id/vHumM" />
 
     <TextView
         android:id="@+id/textView3"

@@ -42,7 +42,10 @@ public class SamplePage extends AppCompatActivity {
         View vTempP = findViewById(R.id.vTempP);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         View vTempM = findViewById(R.id.vTempM);
-
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        View vHumP = findViewById(R.id.vHumP);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        View vHumM = findViewById(R.id.vHumM);
 
         TextView txtActive = findViewById(R.id.txtActive);
         TextView txtHumidity = findViewById(R.id.txtHumidity);
@@ -89,10 +92,10 @@ public class SamplePage extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.child("phone").child("humidity").getValue() != null) {
-                    txtHum.setText(snapshot.child("data").child("humidity").getValue().toString());
+                    txtHum.setText(snapshot.child("phone").child("humidity").getValue().toString());
                 }
                 if (snapshot.child("phone").child("temperature").getValue() != null) {
-                    txtTemp.setText(String.valueOf(snapshot.child("data").child("temperature").getValue()));
+                    txtTemp.setText(String.valueOf(snapshot.child("phone").child("temperature").getValue()));
                 }
             }
             @Override
@@ -130,6 +133,26 @@ public class SamplePage extends AppCompatActivity {
                 mDatabase.child("phone").child("temperature").setValue(counter);
             } else {
                 Toast.makeText(SamplePage.this, "Min Temp Reached", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        vHumP.setOnClickListener(v ->{
+            if (counter < 10000) {
+                counter++;
+                txtHum.setText(String.valueOf(counter));
+                mDatabase.child("phone").child("humidity").setValue(counter);
+            } else {
+                Toast.makeText(SamplePage.this, "Max Humidity Reached", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        vHumM.setOnClickListener(v ->{
+            if (counter > 0) {
+                counter--;
+                txtHum.setText(String.valueOf(counter));
+                mDatabase.child("phone").child("humidity").setValue(counter);
+            } else {
+                Toast.makeText(SamplePage.this, "Min Humidity Reached", Toast.LENGTH_SHORT).show();
             }
         });
 
