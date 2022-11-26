@@ -24,7 +24,7 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <View
-        android:id="@+id/view3"
+        android:id="@+id/vTempM"
         android:layout_width="44dp"
         android:layout_height="24dp"
         android:background="@drawable/bottom"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <View
-        android:id="@+id/view2"
+        android:id="@+id/vTempP"
         android:layout_width="44dp"
         android:layout_height="24dp"
         android:background="@drawable/uppp"
@@ -70,14 +70,14 @@
         app:layout_constraintTop_toBottomOf="@+id/view4" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/connect"
-        app:layout_constraintBottom_toTopOf="@+id/view3"
+        app:layout_constraintBottom_toTopOf="@+id/vTempM"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/view2" />
+        app:layout_constraintTop_toBottomOf="@+id/vTempP" />
 
     <Button
         android:id="@+id/button"
@@ -87,7 +87,7 @@
         android:text="@string/water"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/view3" />
+        app:layout_constraintTop_toBottomOf="@+id/vTempM" />
 
     <Button
         android:id="@+id/button2"

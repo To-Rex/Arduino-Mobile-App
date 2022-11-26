@@ -1,5 +1,7 @@
 package app.arduino.arduinoconnect;
 
+import static app.arduino.arduinoconnect.R.id.vTempM;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,11 +36,18 @@ public class SamplePage extends AppCompatActivity {
         //mDatabase.child("phone").child("soilmoisture").setValue(20);
         //mDatabase.child("phone").child("temperature").setValue(30);
         View view = findViewById(R.id.view);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        View vTempP = findViewById(R.id.vTempP);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        View vTempM = findViewById(R.id.vTempM);
+
 
         TextView txtActive = findViewById(R.id.txtActive);
         TextView txtHumidity = findViewById(R.id.txtHumidity);
         TextView txtSoilmosture = findViewById(R.id.txtSoilmosture);
         TextView txtTemprature = findViewById(R.id.txtTemprature);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        TextView txtTemp = findViewById(R.id.txtTemp);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @SuppressLint("SetTextI18n")
@@ -84,6 +93,12 @@ public class SamplePage extends AppCompatActivity {
             }
         });
 
-        
+        vTempP.setOnClickListener(v ->{
+            txtTemp.setText(String.valueOf(Integer.parseInt(txtTemp.getText().toString()) + 1));
+        });
+        vTempM.setOnClickListener(v ->{
+            txtTemp.setText(String.valueOf(Integer.parseInt(txtTemp.getText().toString()) - 1));
+        });
+
     }
 }
