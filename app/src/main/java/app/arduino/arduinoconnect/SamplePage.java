@@ -9,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,6 +23,7 @@ public class SamplePage extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private Boolean isOn = false;
+    private int counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,10 +96,23 @@ public class SamplePage extends AppCompatActivity {
         });
 
         vTempP.setOnClickListener(v ->{
-            txtTemp.setText(String.valueOf(Integer.parseInt(txtTemp.getText().toString()) + 1));
+            if (counter < 10) {
+                counter++;
+                txtTemp.setText(String.valueOf(counter));
+                mDatabase.child("phone").child("temperature").setValue(counter);
+            } else {
+                Toast.makeText(SamplePage.this, "Max Temp Reached", Toast.LENGTH_SHORT).show();
+            }
         });
+        
         vTempM.setOnClickListener(v ->{
-            txtTemp.setText(String.valueOf(Integer.parseInt(txtTemp.getText().toString()) - 1));
+            if (counter > 0) {
+                counter--;
+                txtTemp.setText(String.valueOf(counter));
+                mDatabase.child("phone").child("temperature").setValue(counter);
+            } else {
+                Toast.makeText(SamplePage.this, "Min Temp Reached", Toast.LENGTH_SHORT).show();
+            }
         });
 
     }
