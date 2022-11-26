@@ -75,6 +75,24 @@ public class SamplePage extends AppCompatActivity {
                 }
                 if (snapshot.child("data").child("temperature").getValue() != null) {
                     txtTemprature.setText(snapshot.child("data").child("temperature").getValue().toString());
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.child("phone").child("humidity").getValue() != null) {
+                    txtHumidity.setText(snapshot.child("data").child("humidity").getValue().toString());
+                }
+                if (snapshot.child("data").child("soilmoisture").getValue() != null) {
+                    txtSoilmosture.setText(snapshot.child("data").child("soilmoisture").getValue().toString());
+                }
+                if (snapshot.child("data").child("temperature").getValue() != null) {
                     txtTemp.setText(String.valueOf(snapshot.child("data").child("temperature").getValue()));
                 }
             }
