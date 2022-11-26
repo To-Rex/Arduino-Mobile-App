@@ -24,6 +24,7 @@ public class SamplePage extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private Boolean isOn = false;
     private double counter = 0;
+    private double counter1 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,10 +93,12 @@ public class SamplePage extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.child("phone").child("humidity").getValue() != null) {
-                    txtHum.setText(snapshot.child("phone").child("humidity").getValue().toString());
+                    txtHum.setText(Objects.requireNonNull(snapshot.child("phone").child("humidity").getValue()).toString());
+                    counter = Double.parseDouble(Objects.requireNonNull(snapshot.child("phone").child("humidity").getValue()).toString());
                 }
                 if (snapshot.child("phone").child("temperature").getValue() != null) {
                     txtTemp.setText(String.valueOf(snapshot.child("phone").child("temperature").getValue()));
+                    counter1 = Double.parseDouble(Objects.requireNonNull(snapshot.child("phone").child("temperature").getValue()).toString());
                 }
             }
             @Override
@@ -138,7 +141,7 @@ public class SamplePage extends AppCompatActivity {
 
         vHumP.setOnClickListener(v ->{
             if (counter < 10000) {
-                counter++;
+                counter1++;
                 txtHum.setText(String.valueOf(counter));
                 mDatabase.child("phone").child("humidity").setValue(counter);
             } else {
@@ -148,13 +151,12 @@ public class SamplePage extends AppCompatActivity {
 
         vHumM.setOnClickListener(v ->{
             if (counter > 0) {
-                counter--;
+                counter1--;
                 txtHum.setText(String.valueOf(counter));
                 mDatabase.child("phone").child("humidity").setValue(counter);
             } else {
                 Toast.makeText(SamplePage.this, "Min Humidity Reached", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }
