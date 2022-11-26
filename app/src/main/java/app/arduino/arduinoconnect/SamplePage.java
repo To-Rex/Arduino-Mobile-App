@@ -93,9 +93,9 @@ public class SamplePage extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.child("phone").child("humidity").getValue() != null) {
-                    txtHum.setText(Objects.requireNonNull(snapshot.child("phone").child("humidity").getValue()).toString());
-                    counter1 = Double.parseDouble(Objects.requireNonNull(snapshot.child("phone").child("humidity").getValue()).toString());
+                if (snapshot.child("phone").child("soilmoisture").getValue() != null) {
+                    txtHum.setText(Objects.requireNonNull(snapshot.child("phone").child("soilmoisture").getValue()).toString());
+                    counter1 = Double.parseDouble(Objects.requireNonNull(snapshot.child("phone").child("soilmoisture").getValue()).toString());
                 }
                 if (snapshot.child("phone").child("temperature").getValue() != null) {
                     txtTemp.setText(String.valueOf(snapshot.child("phone").child("temperature").getValue()));
@@ -144,7 +144,7 @@ public class SamplePage extends AppCompatActivity {
             if (counter < 10000) {
                 counter1++;
                 txtHum.setText(String.valueOf(counter1));
-                mDatabase.child("phone").child("humidity").setValue(counter1);
+                mDatabase.child("phone").child("soilmoisture").setValue(counter1);
             } else {
                 Toast.makeText(SamplePage.this, "Max Humidity Reached", Toast.LENGTH_SHORT).show();
             }
@@ -154,7 +154,7 @@ public class SamplePage extends AppCompatActivity {
             if (counter > 0) {
                 counter1--;
                 txtHum.setText(String.valueOf(counter1));
-                mDatabase.child("phone").child("humidity").setValue(counter1);
+                mDatabase.child("phone").child("soilmoisture").setValue(counter1);
             } else {
                 Toast.makeText(SamplePage.this, "Min Humidity Reached", Toast.LENGTH_SHORT).show();
             }
