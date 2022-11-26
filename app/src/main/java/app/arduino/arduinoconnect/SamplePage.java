@@ -76,6 +76,7 @@ public class SamplePage extends AppCompatActivity {
                 if (snapshot.child("data").child("temperature").getValue() != null) {
                     txtTemprature.setText(snapshot.child("data").child("temperature").getValue().toString());
                     counter = Double.parseDouble(snapshot.child("data").child("temperature").getValue().toString());
+                    txtTemp.setText(String.valueOf(counter));
                 }
             }
             @Override
