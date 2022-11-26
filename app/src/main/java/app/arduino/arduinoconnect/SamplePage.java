@@ -94,11 +94,11 @@ public class SamplePage extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.child("phone").child("humidity").getValue() != null) {
                     txtHum.setText(Objects.requireNonNull(snapshot.child("phone").child("humidity").getValue()).toString());
-                    counter = Double.parseDouble(Objects.requireNonNull(snapshot.child("phone").child("humidity").getValue()).toString());
+                    counter1 = Double.parseDouble(Objects.requireNonNull(snapshot.child("phone").child("humidity").getValue()).toString());
                 }
                 if (snapshot.child("phone").child("temperature").getValue() != null) {
                     txtTemp.setText(String.valueOf(snapshot.child("phone").child("temperature").getValue()));
-                    counter1 = Double.parseDouble(Objects.requireNonNull(snapshot.child("phone").child("temperature").getValue()).toString());
+                    counter = Double.parseDouble(Objects.requireNonNull(snapshot.child("phone").child("temperature").getValue()).toString());
                 }
             }
             @Override
