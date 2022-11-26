@@ -50,6 +50,8 @@ public class SamplePage extends AppCompatActivity {
         TextView txtTemprature = findViewById(R.id.txtTemprature);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         TextView txtTemp = findViewById(R.id.txtTemp);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        TextView txtHum = findViewById(R.id.txtHum);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @SuppressLint("SetTextI18n")
@@ -87,12 +89,9 @@ public class SamplePage extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.child("phone").child("humidity").getValue() != null) {
-                    txtHumidity.setText(snapshot.child("data").child("humidity").getValue().toString());
+                    txtHum.setText(snapshot.child("data").child("humidity").getValue().toString());
                 }
-                if (snapshot.child("data").child("soilmoisture").getValue() != null) {
-                    txtSoilmosture.setText(snapshot.child("data").child("soilmoisture").getValue().toString());
-                }
-                if (snapshot.child("data").child("temperature").getValue() != null) {
+                if (snapshot.child("phone").child("temperature").getValue() != null) {
                     txtTemp.setText(String.valueOf(snapshot.child("data").child("temperature").getValue()));
                 }
             }

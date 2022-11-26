@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtHum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/connect"
