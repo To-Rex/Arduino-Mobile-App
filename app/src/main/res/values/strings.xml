@@ -3,4 +3,6 @@
     <string name="connect">Connect</string>
     <string name="water">Water</string>
     <string name="the_air">The air</string>
+    <string name="active">Active</string>
+    <string name="on">On</string>
 </resources>
