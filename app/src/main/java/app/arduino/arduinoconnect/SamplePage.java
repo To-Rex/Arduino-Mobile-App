@@ -72,8 +72,6 @@ public class SamplePage extends AppCompatActivity {
             }
         });
 
-
-
         view.setOnClickListener(v -> {
             if (isOn) {
                 mDatabase.child("data").child("on").setValue(0);
@@ -85,5 +83,7 @@ public class SamplePage extends AppCompatActivity {
                 view.setBackgroundResource(R.drawable.on_button);
             }
         });
+
+        
     }
 }
