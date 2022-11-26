@@ -3,6 +3,7 @@ package app.arduino.arduinoconnect;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -39,10 +40,12 @@ public class SamplePage extends AppCompatActivity {
         TextView txtSoilmosture = findViewById(R.id.txtSoilmosture);
         TextView txtTemprature = findViewById(R.id.txtTemprature);
 
-        mDatabase.child("data").child("on").get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                if (task.getResult().getValue() != null) {
-                    if (task.getResult().getValue().toString().equals("1")) {
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.child("data").child("on").getValue() != null) {
+                    if (Objects.requireNonNull(snapshot.child("data").child("on").getValue()).toString().equals("1")) {
                         isOn = true;
                         view.setBackgroundResource(R.drawable.on_button);
                         txtActive.setText("Active");
@@ -53,12 +56,6 @@ public class SamplePage extends AppCompatActivity {
                         txtActive.setText("Inactive");
                     }
                 }
-            }
-        });
-
-        mDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.child("data").child("humidity").getValue() != null) {
                     txtHumidity.setText(snapshot.child("data").child("humidity").getValue().toString());
                 }
