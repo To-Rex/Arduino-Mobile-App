@@ -66,7 +66,6 @@ public class SamplePage extends AppCompatActivity {
                     txtTemprature.setText(snapshot.child("data").child("temperature").getValue().toString());
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
