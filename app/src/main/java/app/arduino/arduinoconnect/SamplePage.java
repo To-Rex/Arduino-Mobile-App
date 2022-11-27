@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ public class SamplePage extends AppCompatActivity {
     private double counter = 0;
     private double counter1 = 0;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -157,5 +159,28 @@ public class SamplePage extends AppCompatActivity {
             }
         });
 
+        btnrele1.setOnClickListener(v -> {
+            //popup menu
+            PopupMenu popupMenu = new PopupMenu(SamplePage.this, btnrele1);
+            popupMenu.getMenuInflater().inflate(R.menu.menu, popupMenu.getMenu());
+            popupMenu.setOnMenuItemClickListener(item -> {
+                switch (item.getItemId()) {
+                    case R.id.autoon:
+                        mDatabase.child("phone").child("rele1").setValue("auto");
+                        Toast.makeText(SamplePage.this, "Auto Mode", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.workson:
+                        mDatabase.child("phone").child("rele1").setValue("on");
+                        Toast.makeText(SamplePage.this, "On Mode", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.workoff:
+                        mDatabase.child("phone").child("rele1").setValue("off");
+                        Toast.makeText(SamplePage.this, "Off Mode", Toast.LENGTH_SHORT).show();
+                        return true;
+                    default:
+                        return false;
+                }
+            });
+        });
     }
 }

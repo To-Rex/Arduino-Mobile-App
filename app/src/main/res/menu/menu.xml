@@ -9,5 +9,4 @@
     <item
         android:id="@+id/workoff"
         android:title="@string/off" />
-
 </menu>
