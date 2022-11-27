@@ -56,6 +56,10 @@ public class SamplePage extends AppCompatActivity {
         Button btnrele1 = findViewById(R.id.btnrele1);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         Button btnrele2 = findViewById(R.id.btnrele2);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        TextView txtOnInfo = findViewById(R.id.txtOnInfo);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        TextView txtOnInfo1 = findViewById(R.id.txtOnInfo1);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @SuppressLint("SetTextI18n")
@@ -99,6 +103,24 @@ public class SamplePage extends AppCompatActivity {
                 if (snapshot.child("phone").child("temperature").getValue() != null) {
                     txtTemp.setText(String.valueOf(snapshot.child("phone").child("temperature").getValue()));
                     counter = Double.parseDouble(Objects.requireNonNull(snapshot.child("phone").child("temperature").getValue()).toString());
+                }
+                if (snapshot.child("phone").child("rele1").getValue() != null) {
+                    if (Objects.requireNonNull(snapshot.child("phone").child("rele1").getValue()).toString().equals("auto")) {
+                        txtOnInfo.setText("Auto");
+                    } else if (Objects.requireNonNull(snapshot.child("phone").child("rele1").getValue()).toString().equals("on")) {
+                        txtOnInfo.setText("On");
+                    } else if (Objects.requireNonNull(snapshot.child("phone").child("rele1").getValue()).toString().equals("off")) {
+                        txtOnInfo.setText("Off");
+                    }
+                }
+                if (snapshot.child("phone").child("rele2").getValue() != null) {
+                    if (Objects.requireNonNull(snapshot.child("phone").child("rele2").getValue()).toString().equals("auto")) {
+                        txtOnInfo1.setText("Auto");
+                    } else if (Objects.requireNonNull(snapshot.child("phone").child("rele2").getValue()).toString().equals("on")) {
+                        txtOnInfo1.setText("On");
+                    } else if (Objects.requireNonNull(snapshot.child("phone").child("rele2").getValue()).toString().equals("off")) {
+                        txtOnInfo1.setText("Off");
+                    }
                 }
             }
             @Override
