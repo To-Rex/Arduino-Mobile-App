@@ -125,7 +125,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="@string/soilmoisture"
+        android:text="@string/soil_moisture"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -144,8 +144,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="55dp"
-        android:textColor="@color/black"
         android:text="@string/connect"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent" />
@@ -167,8 +167,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:textColor="@color/black"
         android:text="@string/connect"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/txtHumidity" />
@@ -178,8 +178,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:textColor="@color/black"
         android:text="@string/connect"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/txtSoilmosture" />
@@ -189,14 +189,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1"/>
+        app:layout_constraintGuide_percent="0.1" />
 
     <TextView
         android:id="@+id/txtOnInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/connect"
         android:layout_marginTop="10dp"
+        android:text="@string/connect"
         app:layout_constraintEnd_toEndOf="@+id/btnrele1"
         app:layout_constraintStart_toStartOf="@+id/btnrele1"
         app:layout_constraintTop_toBottomOf="@+id/btnrele1" />
@@ -205,10 +205,31 @@
         android:id="@+id/txtOnInfo1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/connect"
         android:layout_marginTop="10dp"
+        android:text="@string/connect"
         app:layout_constraintEnd_toEndOf="@+id/btnrele2"
         app:layout_constraintStart_toStartOf="@+id/btnrele2"
         app:layout_constraintTop_toBottomOf="@+id/btnrele2" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temperature"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/vTempP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/soil_moisture"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/vHumP"
+        app:layout_constraintEnd_toEndOf="@+id/vHumP"
+        app:layout_constraintHorizontal_bias="0.336"
+        app:layout_constraintStart_toStartOf="@+id/vHumP" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

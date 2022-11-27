@@ -11,4 +11,5 @@
     <string name="auto">Auto</string>
     <string name="ons">On</string>
     <string name="off">Off</string>
+    <string name="soil_moisture">Soil Moisture</string>
 </resources>
