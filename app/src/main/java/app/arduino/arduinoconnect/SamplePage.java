@@ -64,7 +64,7 @@ public class SamplePage extends AppCompatActivity {
                 if (snapshot.child("data").child("on").getValue() != null) {
                     if (Objects.requireNonNull(snapshot.child("data").child("on").getValue()).toString().equals("1")) {
                         isOn = true;
-                        view.setBackgroundResource(R.drawable.on_button);
+                        view.setBackgroundResource(R.drawable.on_off1);
                         txtActive.setText("Active");
 
                     } else {
@@ -112,10 +112,10 @@ public class SamplePage extends AppCompatActivity {
                 mDatabase.child("data").child("on").setValue(0);
                 isOn = false;
                 view.setBackgroundResource(R.drawable.on_off);
-            } else {
+                } else {
                 mDatabase.child("data").child("on").setValue(1);
                 isOn = true;
-                view.setBackgroundResource(R.drawable.on_button);
+                view.setBackgroundResource(R.drawable.on_off1);
             }
         });
 
