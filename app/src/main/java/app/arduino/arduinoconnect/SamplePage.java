@@ -78,13 +78,13 @@ public class SamplePage extends AppCompatActivity {
                     }
                 }
                 if (snapshot.child("data").child("humidity").getValue() != null) {
-                    txtHumidity.setText(snapshot.child("data").child("humidity").getValue().toString());
+                    txtHumidity.setText(Objects.requireNonNull(snapshot.child("data").child("humidity").getValue()).toString());
                 }
                 if (snapshot.child("data").child("soilmoisture").getValue() != null) {
-                    txtSoilmosture.setText(snapshot.child("data").child("soilmoisture").getValue().toString());
+                    txtSoilmosture.setText(Objects.requireNonNull(snapshot.child("data").child("soilmoisture").getValue()).toString());
                 }
                 if (snapshot.child("data").child("temperature").getValue() != null) {
-                    txtTemprature.setText(snapshot.child("data").child("temperature").getValue().toString());
+                    txtTemprature.setText(Objects.requireNonNull(snapshot.child("data").child("temperature").getValue()).toString());
                 }
             }
             @Override
