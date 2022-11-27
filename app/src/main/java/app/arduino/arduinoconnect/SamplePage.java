@@ -160,7 +160,6 @@ public class SamplePage extends AppCompatActivity {
         });
 
         btnrele1.setOnClickListener(v -> {
-            //popup menu
             PopupMenu popupMenu = new PopupMenu(SamplePage.this, btnrele1);
             popupMenu.getMenuInflater().inflate(R.menu.menu, popupMenu.getMenu());
             popupMenu.setOnMenuItemClickListener(item -> {
@@ -180,7 +179,34 @@ public class SamplePage extends AppCompatActivity {
                     default:
                         return false;
                 }
-            });
+            }
+            );
+            popupMenu.show();
+        });
+
+        btnrele2.setOnClickListener(v -> {
+            PopupMenu popupMenu = new PopupMenu(SamplePage.this, btnrele2);
+            popupMenu.getMenuInflater().inflate(R.menu.menu, popupMenu.getMenu());
+            popupMenu.setOnMenuItemClickListener(item -> {
+                switch (item.getItemId()) {
+                    case R.id.autoon:
+                        mDatabase.child("phone").child("rele2").setValue("auto");
+                        Toast.makeText(SamplePage.this, "Auto Mode", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.workson:
+                        mDatabase.child("phone").child("rele2").setValue("on");
+                        Toast.makeText(SamplePage.this, "On Mode", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.workoff:
+                        mDatabase.child("phone").child("rele2").setValue("off");
+                        Toast.makeText(SamplePage.this, "Off Mode", Toast.LENGTH_SHORT).show();
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+            );
+            popupMenu.show();
         });
     }
 }
