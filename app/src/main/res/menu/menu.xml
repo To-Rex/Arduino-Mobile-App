@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/autoon"
+        android:title="@string/auto" />
+    <item
+        android:id="@+id/workson"
+        android:title="@string/ons" />
+    <item
+        android:id="@+id/workoff"
+        android:title="@string/off" />
+
+</menu>

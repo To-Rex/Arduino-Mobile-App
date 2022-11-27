@@ -8,4 +8,7 @@
     <string name="humidity">Humidity</string>
     <string name="soilmoisture">Soilmoisture</string>
     <string name="temperature">Temperature</string>
+    <string name="auto">Auto</string>
+    <string name="ons">On</string>
+    <string name="off">Off</string>
 </resources>
